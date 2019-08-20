@@ -42,10 +42,11 @@ def do_deploy(archive_path):
     else:
         return False
 
+
 def deploy():
+    """ full deploy"""
     name = do_pack()
     if name:
         return do_deploy(name)
-    else :
+    else:
         return False
-
