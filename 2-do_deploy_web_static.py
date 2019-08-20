@@ -10,7 +10,7 @@ env.hosts = ['35.243.150.102', '35.237.124.126']
 def do_pack():
     """ doc pack task"""
     now = datetime.now()
-    current_time = now.strftime("%Y%m%d%H%M")
+    current_time = now.strftime("%Y%m%d%H%M%S")
     name = "versions/web_static_{}.tgz web_static".format(current_time)
     local('mkdir -p versions')
     result = local("tar -cvzf {}".format(name))

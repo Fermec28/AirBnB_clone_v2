@@ -7,7 +7,7 @@ from datetime import datetime
 def do_pack():
     """ do pack task """
     now = datetime.now()
-    current_time = now.strftime("%Y%m%d%H%M")
+    current_time = now.strftime("%Y%m%d%H%M%S")
     name = "versions/web_static_{}.tgz web_static".format(current_time)
     local('mkdir -p versions')
     result = local("tar -cvzf {}".format(name))
