@@ -30,7 +30,7 @@ def do_deploy(archive_path):
             run("mkdir -p {}".format(remote_path))
             with cd('/tmp'):
                 run("tar -xzf {} --directory {}".format(archive_path[9:],
-                                                         remote_path))
+                                                        remote_path))
                 run("rm *.tgz")
             run("ln -nsf {} /data/web_static/current".format(remote_path))
             run("mv {}/web_static/* {}".format(remote_path, remote_path))
