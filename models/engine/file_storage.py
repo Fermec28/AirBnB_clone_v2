@@ -71,6 +71,14 @@ class FileStorage:
             del self.__objects[key]
             self.save()
 
+    def find(self, cls, id):
+        """find specific object from db """
+        key = "{}.{}".format(cls.__name__, id)
+        if key in self.__objects:
+            return self.__objects[key]
+        else:
+            return None
+
     def close(self):
         """ call  method for deserializing the JSON file to objects"""
         self.reload()

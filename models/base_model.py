@@ -78,3 +78,8 @@ class BaseModel:
     def delete(self):
         """ delete element from database """
         models.storage.delete(self)
+
+    @classmethod
+    def find(cls, id):
+        """ find element from database """
+        return models.storage.find(cls, id)

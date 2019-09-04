@@ -84,6 +84,10 @@ class DBStorage:
             obj.delete(synchronize_session=False)
             self.__session.commit()
 
+    def find(self, cls, id):
+        """find specific object from db """
+        return self.__session.query(cls).get(id)
+
     def close(self):
         """ close session"""
         self.__session.close()
