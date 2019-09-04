@@ -52,12 +52,13 @@ def number_odd_even(number):
         return render_template('6-number_odd_or_even.html', number=number)
 
 
+@app.route('/states')
 @app.route('/states_list')
 def states():
         """ number in template """
         states = list(storage.all("State").values()).copy()
         states.sort(key=lambda x: x.name)
-        return render_template('7-states_list.html', states=states)
+        return render_template('7-states_list.html', states=[])
 
 
 @app.route('/cities_by_states')

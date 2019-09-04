@@ -5,10 +5,12 @@
   </HEAD>
   <BODY>
     <H1>States</H1>
+    {% if state %}
     <UL>
       {% for state in states %}
           <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
       {% endfor %}
-    </UL>    
+    </UL>
+    {% endif %}
   </BODY>
 </HTML>
