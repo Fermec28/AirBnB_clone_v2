@@ -58,7 +58,7 @@ def states():
         """ number in template """
         states = list(storage.all("State").values()).copy()
         states.sort(key=lambda x: x.name)
-        return render_template('7-states_list.html', states=[])
+        return render_template('7-states_list.html', states=states)
 
 
 @app.route('/cities_by_states')
