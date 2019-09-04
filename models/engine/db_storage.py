@@ -74,3 +74,7 @@ class DBStorage:
         if obj:
             obj.delete(synchronize_session=False)
             self.__session.commit()
+
+    def close(self):
+        """ close session"""
+        self.__session.close()
