@@ -38,11 +38,20 @@ class DBStorage:
             returns a dictionary of __object
         """
         aux = {}
+        valid_models = {
+            "User": User, "State": State, "City": City,
+            "Amenity": Amenity, "Place": Place,
+            "Review": Review
+        }
         if cls is None:
             for cls_aux in [User, State, City, Amenity, Place, Review]:
                 for obj in self.__session.query(cls_aux).all():
                     key = "{}.{}".format(type(obj).__name__, obj.id)
                     aux[key] = obj
+        elif type(cls) is str and cls in valid_models:
+            for obj in self.__session.query(valid_models[cls]).all():
+                key = "{}.{}".format(type(obj).__name__, obj.id)
+                aux[key] = obj
         else:
             for obj in self.__session.query(cls).all():
                 key = "{}.{}".format(type(obj).__name__, obj.id)
