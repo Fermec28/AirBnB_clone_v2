@@ -12,7 +12,7 @@
       <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
       {% endfor %}
     </UL>
-    {% elif states and not state%}
+    {% elif (states or states == []) and not state%}
     <H1>States</H1>
     <UL>
       {% for state in states %}

@@ -79,6 +79,7 @@ def states_show(id):
 def index_state():
         """ number in template """
         states = list(storage.all("State").values()).copy()
+        print(states)
         states.sort(key=lambda x: x.name)
         return render_template('9-states.html', state=None, states=states)
 
